@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import FormComp from "./FormComp"
+import ShowData from "./ShowData"
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = (props)=>{
+    // User Data
+   const [UsersData, setUsersData] = useState([])
+       const getUserData = (newData)=>{
+           setUsersData((preData)=> [...preData, newData])
+       }
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // caculate Result
+    
+    return(
+        <div className="body">
+            <header >
+                <h1> First Project </h1>
+                <p>this is just Demo use and I will keep update new version </p>
+            </header>
+            <main>
+                <FormComp newUserData={getUserData} sendData={UsersData}/>
+                <ShowData sendData={UsersData} />
+            </main>
+        </div>
+    )
 }
 
-export default App
+export default App;
