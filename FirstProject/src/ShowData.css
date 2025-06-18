@@ -2,6 +2,7 @@
     border: solid 1px rgba(0,0,0,0.25);
     margin: 20px 10px;
     padding: 5.5px;
+    box-shadow: 0 0 5px;
 }
 
 .ShowData-f{
@@ -30,7 +31,7 @@
 .Show-Date{
     font-size: larger;
     font-weight: bolder;
-    height: 30px;
+    min-height: 30px;
 }
 
 .Show-Table{
@@ -41,13 +42,18 @@
 }
 .Th-row, .Tb-row{display: flex;}
 .Th-col, .Tb-col{
-    height: 30px;
+    min-height: 30px;
     display: flex;
     align-items: center;
     padding-left: 5px;
 }
-.col1{width: 10%;}
-.col2{width: 35%;}
-.col3{width: 25%;}
-.col4{width: 15%;}
-.col4{width: 15%;}
+.Tb-col{
+    border-right: solid 1px rgba(0,0,0,0.2);
+    margin-top: 10px;
+}
+
+.col1{width: 50px}
+.col2{width: 150px}
+.col3{width: 100px;}
+.col4{width: 100px;}
+.col5{width: 100px;}

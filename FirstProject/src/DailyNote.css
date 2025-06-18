@@ -1,0 +1,40 @@
+.DailyNote-container{
+    width: 300px;
+    min-height: 300px;
+    position: absolute;
+    background-color: rgb(247, 231, 202);
+    border: solid 3px rgb(201, 196, 196);
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: 5px 5px 10px black;
+    
+}
+
+.DailyNote-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* for Input text */
+.DailyNote-InpText textarea{
+    border: none;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    width: 250px;
+    height: 150px;
+    margin: 10px 0;
+    padding: 1rem;
+}
+/* for DailyNote-Btn */
+.DailyNote-InpText button{
+    width: 50px;
+    height: 50px;
+    background-color: #d5d5d5;
+    border: solid 2px rgb(223, 201, 162);
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 20px;
+    margin: 0 5px;
+}

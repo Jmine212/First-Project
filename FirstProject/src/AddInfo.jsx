@@ -3,7 +3,9 @@ import { use, useState } from 'react';
 
 const AddInfo = (props)=>{
     const {OpAddInfo,setOpAddInfo} = props;
-
+    // Show Current Date
+    const now = new Date();
+    const ShowDate = now.toLocaleDateString('en-US');    
     // for input
     const [name, setname] =useState('')
     const [model, setmodel] = useState('')
@@ -12,30 +14,35 @@ const AddInfo = (props)=>{
     const [error, seterror] = useState('')
     const [price, setprice] = useState('')
     const [source, setsource] = useState('')
-
+    const [addnote, setaddnote] = useState('')
+    //for submit
     const SubInfo = (event)=>{
         event.preventDefault()
-        const User = {
-            key: Math.floor(Math.random() * 1000),
-            name: name,
-            model: model,
-            phone: phone,
-            pw: pw,
-            error: error,
-            price: price,
-            source: source
+        if(name === '' || model === '' || phone === '' || pw === '' || error === '' || price === '' || source === ''){
+            alert("Please fill all fields");
+        }else{
+            const User = {
+                key: Math.floor(Math.random() * 1000),
+                name: name,
+                model: model,
+                phone: phone,
+                pw: pw,
+                error: error,
+                price: price,
+                source: source,
+                addnote: addnote,
+            }
+            props.pushUserData(User);
+            setname('')
+            setmodel('')
+            setphone('')
+            setpw('')
+            seterror('')
+            setprice('')
+            setsource('')
+            setaddnote('')
+            setOpAddInfo(false)
         }
-        props.pushUserData(User);
-
-        setname('')
-        setmodel('')
-        setphone('')
-        setpw('')
-        seterror('')
-        setprice('')
-        setsource('')
-        alert("Add User Data Success")
-        setOpAddInfo(false)
     }
 
     return(
@@ -46,7 +53,7 @@ const AddInfo = (props)=>{
             </header>
             <form className='AddInfo-F' onSubmit={SubInfo}>
                 <div style={{display:"flex"}}>
-                    <p className="AddInfo-Date">Date: 5.10.2005</p>
+                    <p className="AddInfo-Date">Date: {ShowDate}</p>
                     <button className='CloseBtn' type="button" onClick={(event)=>setOpAddInfo(false)}> Close </button>
                 </div>
 
@@ -78,9 +85,13 @@ const AddInfo = (props)=>{
                     <label>Source</label>
                     <input type="number" value={source} onChange={(event)=>setsource(event.target.value)} />
                 </div>
+                <div className="Add-Note AddInfo">
+                    <label>Note</label>
+                    <textarea value={addnote} onChange={(event)=>setaddnote(event.target.value)} placeholder='Add Note Here ...' style={{height:"50px"}} />     
+                </div>
+
                 <div style={{display:"flex"}}>
                     <button className="AddInfo-Sub" type='submit'>Submit</button>
-                    {/* <button style={{height:"50px",padding:"2px"}}>sooner</button> */}
                 </div>
             </form>
         </div>

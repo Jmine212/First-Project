@@ -8,8 +8,12 @@ const App = (props)=>{
        const getUserData = (newData)=>{
            setUsersData((preData)=> [...preData, newData])
        }
-
-    // caculate Result
+    //Daily Note Data
+    const [UserDailyNote, setUserDailyNote] = useState([]);
+    const getDailynote = (note)=>{
+        setUserDailyNote((preData)=> [note, ...preData])
+    }
+    
     
     return(
         <div className="body">
@@ -17,8 +21,9 @@ const App = (props)=>{
                 <h1> First Project </h1>
                 <p>this is just Demo use and I will keep update new version </p>
             </header>
+            
             <main>
-                <FormComp newUserData={getUserData} sendData={UsersData}/>
+                <FormComp newUserData={getUserData} sendData={UsersData} newDailyNote = {getDailynote} />
                 <ShowData sendData={UsersData} />
             </main>
         </div>

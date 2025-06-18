@@ -1,20 +1,27 @@
 import './FormCom.css';
 import AddInfo from "./AddInfo"
 import { useState } from 'react';
+import DailyNote from './DailyNote';
 
 const FormComp = (props) => {
     //Handle UserData
     const UserData = (Data)=>{
         props.newUserData(Data);
     }
-
+    // Daily note Data
+    const [Note, setNote] = useState(false);
+    const handleDailyNote = (note) =>{
+        props.newDailyNote(note);
+    }
+    //for AddInfo
     const [OpAddInfo, setOpAddInfo] = useState(false)  
-
+   
     return(
         <div className ="form-container">
             <header>
                 
                 <AddInfo OpAddInfo = {OpAddInfo} setOpAddInfo={setOpAddInfo} pushUserData = {UserData} />
+                <DailyNote Note={Note} setNote={setNote} pushDailyNote ={handleDailyNote} />
             </header>
             <form className='from-F'>
                 <select className="form-Date">
@@ -25,7 +32,7 @@ const FormComp = (props) => {
 
                 <div className="form-btn">
                     <button className="OpAddInfo" type='button'><span style={{fontWeight:"bolder"}} onClick={(event)=>setOpAddInfo(true)}>ADD </span>Info</button>
-                    <button>Note</button>
+                    <button type="button" onClick={(event)=>setNote(true)}>Note</button>
                 </div>
             </form>
 

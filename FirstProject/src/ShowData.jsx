@@ -5,11 +5,16 @@ import {useState} from "react";
 const ShowData = (props)=>{
     const {sendData} = props;
 
+    //for Research
     const [Research, setResearch] = useState('')
     const ResearchSub = (event)=>{
         event.preventDefault();
     }
+    //for Show Current Date
+     const now = new Date();
+     const Showdate = now.toLocaleDateString('en-US');
 
+    //for ShowTable
     const [Show, setShow] = useState(true);
 
     return(
@@ -25,7 +30,7 @@ const ShowData = (props)=>{
                 </div>
             </form>
 
-            <div className="Show-Date">Date: 5.10.2012</div>
+            <div className="Show-Date">Date: {Showdate}</div>
             <ShowTable Show ={Show} sendData={sendData} />
         </div>
     )

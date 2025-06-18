@@ -62,6 +62,12 @@
     flex-direction: column;
     margin: 5px 0;
 }
+.AddInfo label{padding-left: 10px;}
+.AddInfo input{
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+}
 .AddInfo-Sub{
     padding: 0.5rem;
     font-size: large;
